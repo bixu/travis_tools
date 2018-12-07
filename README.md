@@ -12,4 +12,7 @@ pkg_build_deps=(
 )
 ```
 You can then call the included binaries in your `plan.sh`, etc.
-For example: `hab pkg exec bixu/travis trigger_build`
+For example:
+```
+hab pkg exec bixu/travis trigger_build
+```
