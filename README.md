@@ -16,3 +16,8 @@ For example:
 ```
 hab pkg exec bixu/travis trigger_build
 ```
+Then, in your build system, set the magic environment variable for your Travis API token.
+For example:
+```
+export TRAVIS_ACCESS_TOKEN=<token>
+```
