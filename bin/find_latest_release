@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -o errexit -o pipefail
+
+if [ -z "$2" ]
+then
+  echo ""
+  echo "  Usage: $0 <pkg_ident> <builder_channel>"
+  echo ""
+  echo "(Note that this tool assumes you do not have a channel called 'nullchannel'.)"
+  echo ""
+  exit 1
+fi
+
+pkg_ident=$1
+builder_channel=$2
+
+hab pkg install "$pkg_ident" --channel="nullchannel" 2>&1 > /dev/null \
+  | grep "$pkg_ident" \
+  | grep "in the '$builder_channel' channel" \
+  | awk '{print $2}'

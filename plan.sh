@@ -3,11 +3,14 @@ pkg_origin=bixu
 pkg_version="0.1.0"
 pkg_maintainer="Blake Irvin <blakeirvin@me.com>"
 pkg_license=("Apache 2")
-pkg_description="Tools for interacting with the Travis testing and build service."
+pkg_description="Tools for interacting with Habitat Builder and Travis."
 pkg_bin_dirs=(bin)
 pkg_deps=(
   core/curl
+  core/gawk
   core/git
+  core/grep
+  core/hab
 )
 
 do_build() {

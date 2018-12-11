@@ -12,12 +12,16 @@ pkg_build_deps=(
 )
 ```
 You can then call the included binaries in your `plan.sh`, etc.
-For example:
+### `trigger_build`
 ```
 hab pkg exec bixu/travis trigger_build
 ```
-Then, in your build system, set the magic environment variable for your Travis API token.
-For example:
+In your build system, you'll need to set the magic environment variable for your Travis API token:
 ```
 export TRAVIS_ACCESS_TOKEN=<token>
+```
+### `find_latest_release`
+```
+hab pkg exec bixu/travis find_latest_release origin/package channel
+origin/package/0.1.0/1234567890
 ```
