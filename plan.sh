@@ -15,6 +15,10 @@ do_build() {
 }
 
 do_install() {
-  cp -pr $PLAN_CONTEXT/bin/* $pkg_prefix/bin/
-  chmod +x $pkg_prefix/bin/*
+  for bin in $(ls $PLAN_CONTEXT/bin)
+  do
+    build_line "Installing $bin"
+    cp -pr $PLAN_CONTEXT/bin/$bin $pkg_prefix/bin/$bin
+    chmod +x $pkg_prefix/bin/$bin
+  done
 }
