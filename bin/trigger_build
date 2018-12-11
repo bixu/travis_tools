@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ -z "$TRAVIS_ACCESS_TOKEN" ]
+then
+  echo "The environment variable TRAVIS_ACCESS_TOKEN is not set. Exiting..."
+  exit 1
+fi
+
 export git_branch=$(git rev-parse --abbrev-ref HEAD)
 export organization=$(git config --get remote.origin.url | cut -d: -f2 | cut -d/ -f1)
 export repository=$(git config --get remote.origin.url | cut -d: -f2 | cut -d/ -f2 | cut -d. -f1)
