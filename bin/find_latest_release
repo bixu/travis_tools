@@ -28,5 +28,6 @@ if echo $output | grep $pkg_ident
 then
   exit 0
 else
+  echo "\`$pkg_ident\` not present in \`$builder_channel\` channel"
   exit 1
 fi
